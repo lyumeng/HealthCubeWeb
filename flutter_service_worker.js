@@ -31,10 +31,10 @@ const RESOURCES = {"assets/AssetManifest.bin": "693635b5258fe5f1cda720cf224f158c
 "icons/Icon-maskable-192.png": "28039e18064f8342198ab11814ba3faa",
 "icons/Icon-maskable-512.png": "1734f89baed25ad6592d6db2b1361b40",
 "icons/icon2.png": "921012e203716273ea3dd2a2abd68f0c",
-"index.html": "db5bb5286fc7dd99eab2dfaae756eaca",
-"/": "db5bb5286fc7dd99eab2dfaae756eaca",
+"index.html": "0f90c0ade9fa327d06981de3f20aca48",
+"/": "0f90c0ade9fa327d06981de3f20aca48",
 "main.dart.js": "11b899116d9207995e6515b118320a5b",
-"manifest.json": "4b8f5bd8e1ade582f0f13926dfe951e2",
+"manifest.json": "c0365e719d84d48cd541325e143d2080",
 "version.json": "b62bee46157c2afc24a64d881a213451"};
 // The application shell files that are downloaded before a service worker can
 // start.
@@ -171,6 +171,7 @@ async function downloadOffline() {
   var resources = [];
   var contentCache = await caches.open(CACHE_NAME);
   var currentContent = {};
+  var origin = self.location.origin;
   for (var request of await contentCache.keys()) {
     var key = request.url.substring(origin.length + 1);
     if (key == "") {
